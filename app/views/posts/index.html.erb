@@ -1,7 +1,7 @@
 <h1>AjaxApp</h1>
-<%= form_with url: "/posts", method: :post, local: true do |form| %>
-  <%= form.text_field :content %>
-  <%= form.submit '投稿する' %>
+<%= form_with url: "/posts", method: :post, id: "form", local: true do |form| %>
+  <%= form.text_field :content, id: "content" %>
+  <%= form.submit '投稿する', id: "submit" %>
 <% end %>
 
 <div id="list">
