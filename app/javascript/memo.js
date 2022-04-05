@@ -60,7 +60,7 @@ function post (){
   //////////////// ▼ここからはサーバーサイドからJSへ"レスポンス"を受けるプロセス ////////////////
   // ❶ レスポンスの受信が成功したか判断
     XHR.onload = () => {
-    // onloadプロパティ : レスポンスを正常に受信したとき呼び出されるプロパティ
+    // onloadプロパティ : リクエストを正常に送信したとき呼び出されるプロパティ
     // 通信が失敗(XHR.statusが成功の200以外だったとき)
     if (XHR.status != 200){
         alert(`Error ${XHR.status}: ${XHR.statusText}`)
@@ -68,14 +68,14 @@ function post (){
         // return nullによって、XHR.statusから抜け出す
       }
 
-      const list = document.getElementById("list")
-      const formText = document.getElementById("content");
-        // 変数formTextにフォームの値を格納する
-
   // ❹ 生成したHTMLをブラウザに描画する
-      list.insertAdjacentHTML("afterbegin", buildHTML(XHR));
+    const list = document.getElementById("list")
+    list.insertAdjacentHTML("afterbegin", buildHTML(XHR));
       // 要素.insertAdjacentHTML(挿入したい位置,挿入したいHTML)
       // afterbegin : 要素内部の最初の子要素の直前
+
+      const formText = document.getElementById("content");
+      // 変数formTextにフォームの値を格納する
 
       formText.value = ""
       // 入力フォームを空にする
